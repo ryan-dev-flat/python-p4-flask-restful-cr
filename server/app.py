@@ -52,6 +52,7 @@ class Newsletters(Resource):
 api.add_resource(Newsletters, '/newsletters')
 
 class NewsletterByID(Resource):
+
     def get(self, id):
 
         response_dict = Newsletter.query.filter_by(id=id).first().to_dict()
@@ -62,7 +63,9 @@ class NewsletterByID(Resource):
         )
 
         return response
+
 api.add_resource(NewsletterByID, '/newsletters/<int:id>')
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
